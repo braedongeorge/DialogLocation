@@ -10,6 +10,7 @@ Installation
 Copy the src/com/braedongeorge/notelocation/NoteLocation.java to your project,
 Implement a NoteLocation.NoteLocationListener into your activity and the method onLocationFound.
 
+<pre>
 @Override
 	public void onLocationFound(Location location, int typeFrag) {
 		if (null == location) {
@@ -18,7 +19,7 @@ Implement a NoteLocation.NoteLocationListener into your activity and the method 
 			Toast.makeText(this, "Location: " + String.valueOf(location.getLatitude()) + ", " + String.valueOf(location.getLongitude()), Toast.LENGTH_SHORT).show();
 		}
 	}
-
+</pre>
 
 To Display the dialog:
 
