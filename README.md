@@ -26,7 +26,7 @@ public void onLocationFound(Location location, int typeFrag) {
 </code>
 
 
-To Display the dialog:
+To display the dialog:
 <code>
 <pre>
   NoteLocation noteLocation = new NoteLocation(true, 1);
