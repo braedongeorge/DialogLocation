@@ -11,6 +11,7 @@ Copy the src/com/braedongeorge/notelocation/NoteLocation.java to your project,
 Implement a NoteLocation.NoteLocationListener into your activity and the method onLocationFound.
 
 <code>
+<pre>
 @Override
 public void onLocationFound(Location location, int typeFrag) {
 	if (null == location) {
@@ -22,13 +23,16 @@ public void onLocationFound(Location location, int typeFrag) {
 			Toast.LENGTH_SHORT).show();
 	}
 }
+</pre>
 </code>
 
 
 To Display the dialog:
 <code>
+<pre>
   NoteLocation noteLocation = new NoteLocation(true, 1);
   temp.show(getSupportFragmentManager(), "dialog");
+  </pre>
 </code>	
 	
 Help
