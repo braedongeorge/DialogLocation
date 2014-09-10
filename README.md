@@ -12,13 +12,15 @@ Implement a NoteLocation.NoteLocationListener into your activity and the method 
 
 <pre>
 @Override
-	public void onLocationFound(Location location, int typeFrag) {
-		if (null == location) {
-			Toast.makeText(this, "No Location found", Toast.LENGTH_SHORT).show();
-		} else {
-			Toast.makeText(this, "Location: " + String.valueOf(location.getLatitude()) + ", " + String.valueOf(location.getLongitude()), Toast.LENGTH_SHORT).show();
-		}
+public void onLocationFound(Location location, int typeFrag) {
+	if (null == location) {
+		Toast.makeText(this, "No Location found", Toast.LENGTH_SHORT).show();
+	} else {
+		Toast.makeText(this,
+			"Location: " + String.valueOf(location.getLatitude()) + ", " + 									String.valueOf(location.getLongitude()), 	
+			Toast.LENGTH_SHORT).show();
 	}
+}
 </pre>
 
 To Display the dialog:
