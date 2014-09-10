@@ -9,7 +9,6 @@ Installation
 
 Copy the src/com/braedongeorge/notelocation/NoteLocation.java to your project,
 Implement a NoteLocation.NoteLocationListener into your activity and the method onLocationFound.
-
 <code>
 <pre>
 @Override
