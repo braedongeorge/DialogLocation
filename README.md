@@ -10,24 +10,26 @@ Installation
 Copy the src/com/braedongeorge/notelocation/NoteLocation.java to your project,
 Implement a NoteLocation.NoteLocationListener into your activity and the method onLocationFound.
 
-<pre>
+<code>
 @Override
 public void onLocationFound(Location location, int typeFrag) {
 	if (null == location) {
 		Toast.makeText(this, "No Location found", Toast.LENGTH_SHORT).show();
 	} else {
 		Toast.makeText(this,
-			"Location: " + String.valueOf(location.getLatitude()) + ", " + 									String.valueOf(location.getLongitude()), 	
+			"Location: " + String.valueOf(location.getLatitude()) + ", " +
+			String.valueOf(location.getLongitude()), 	
 			Toast.LENGTH_SHORT).show();
 	}
 }
-</pre>
+</code>
+
 
 To Display the dialog:
-
+<code>
   NoteLocation noteLocation = new NoteLocation(true, 1);
   temp.show(getSupportFragmentManager(), "dialog");
-	
+</code>	
 	
 Help
 ============
