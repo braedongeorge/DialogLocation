@@ -1,4 +1,4 @@
-NoteLocation
+DialogLocation
 ============
 
 Custom Dialog that returns a new location and an integer that can be used to display the fragment you want.
@@ -7,7 +7,7 @@ Custom Dialog that returns a new location and an integer that can be used to dis
 Installation
 ============
 
-Copy the src/com/braedongeorge/notelocation/NoteLocation.java to your project,
+Copy the src/com/braedongeorge/dialoglocation/DialogLocation.java to your project,
 Implement a NoteLocation.NoteLocationListener into your activity and the method onLocationFound.
 <code>
 <pre>
@@ -29,7 +29,7 @@ public void onLocationFound(Location location, int typeFrag) {
 To display the dialog:
 <code>
 <pre>
-  NoteLocation noteLocation = new NoteLocation(true, 1);
+  DialogLocation dialogLocation = new DialogLocation(true, 1);
   temp.show(getSupportFragmentManager(), "dialog");
   </pre>
 </code>	
