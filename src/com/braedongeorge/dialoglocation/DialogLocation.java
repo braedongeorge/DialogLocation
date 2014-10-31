@@ -226,7 +226,7 @@ public class DialogLocation extends DialogFragment implements LocationListener {
 		try {
 			mCallback = (DialogLocationListener) activity;
 		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString() + " must implement NoteLocationListener");
+			throw new ClassCastException(activity.toString() + " must implement DialogLocationListener");
 		}
 	}
 
