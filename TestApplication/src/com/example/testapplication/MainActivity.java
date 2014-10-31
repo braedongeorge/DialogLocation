@@ -8,7 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity implements NoteLocation.NoteLocationListener {
+public class MainActivity extends FragmentActivity implements DialogLocation.DialogLocationListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,12 @@ public class MainActivity extends FragmentActivity implements NoteLocation.NoteL
 	}
 
 	public void requestLocationNoGps(View v) {
-		NoteLocation temp = new NoteLocation(false, 1);
+		DialogLocation temp = new DialogLocation(false, 1);
 		temp.show(getSupportFragmentManager(), "dialog");
 	}
 
 	public void requestLocationGps(View v) {
-		NoteLocation temp = new NoteLocation(true, 1);
+		DialogLocation temp = new DialogLocation(true, 1);
 		temp.show(getSupportFragmentManager(), "dialog");
 	}
 

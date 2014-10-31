@@ -14,7 +14,7 @@
  *	limitations under the License.
  */
 
-package com.braedongeorge.notelocation;
+package com.example.testapplication;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -41,7 +41,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-public class NoteLocation extends DialogFragment implements LocationListener {
+public class DialogLocation extends DialogFragment implements LocationListener {
 	private static final String DIALOG_LOCATION_UPDATING_NETWORK_TITLE = "Updating Location (Network)..";
 	private static final String	DIALOG_LOCATION_USE_NETWORK = "Use network location";
 	private static final String DIALOG_LOCATION_NO_LOCATION_SERVICES_TITLE = "No Location Services Enabled";
@@ -58,7 +58,7 @@ public class NoteLocation extends DialogFragment implements LocationListener {
 	private static final int USING_NETWORK_LOCATION = 3;
 	
 	
-	private NoteLocationListener mCallback;
+	private DialogLocationListener mCallback;
 	public LocationManager mLocationManager;
 	private String mProvider;
 	private Criteria mCriteria;
@@ -70,12 +70,12 @@ public class NoteLocation extends DialogFragment implements LocationListener {
 	private ProgressBar mProgressBarInv;
 		
 
-	public NoteLocation(boolean ignoreGPS, int fragmentId) {
+	public DialogLocation(boolean ignoreGPS, int fragmentId) {
 		mFragmentId = fragmentId;
 		mGpsPref = ignoreGPS;
 	}
 
-	public interface NoteLocationListener {
+	public interface DialogLocationListener {
 		public void onLocationFound(Location location, int fragmentId);
 	}
 
@@ -164,7 +164,7 @@ public class NoteLocation extends DialogFragment implements LocationListener {
 			public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
 				if (keyCode == KeyEvent.KEYCODE_BACK) {
 					mCallback.onLocationFound(null, mFragmentId);
-					mLocationManager.removeUpdates(NoteLocation.this);
+					mLocationManager.removeUpdates(DialogLocation.this);
 					Toast.makeText(getActivity(), "Location request cancelled", Toast.LENGTH_SHORT).show();
 					dialog.cancel();
 					return true;
@@ -183,7 +183,7 @@ public class NoteLocation extends DialogFragment implements LocationListener {
 		@Override
 		public void onClick(DialogInterface dialog, int id) {
 			mCallback.onLocationFound(null, mFragmentId);
-			mLocationManager.removeUpdates(NoteLocation.this);
+			mLocationManager.removeUpdates(DialogLocation.this);
 		}
 	};
 
@@ -208,7 +208,7 @@ public class NoteLocation extends DialogFragment implements LocationListener {
 					mProvider = mLocationManager.getBestProvider(mCriteria, true);
 
 					if (mProvider.matches("network")) {
-						mLocationManager.requestLocationUpdates(mProvider, 200, 0, NoteLocation.this);
+						mLocationManager.requestLocationUpdates(mProvider, 200, 0, DialogLocation.this);
 						button.setText(DIALOG_LOCATION_NETWORK_BUTTON_TEXT);
 						mRealDialog.setTitle(DIALOG_LOCATION_UPDATING_NETWORK_TITLE);
 						mProgressBarInv.setVisibility(ProgressBar.VISIBLE);
@@ -224,7 +224,7 @@ public class NoteLocation extends DialogFragment implements LocationListener {
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		try {
-			mCallback = (NoteLocationListener) activity;
+			mCallback = (DialogLocationListener) activity;
 		} catch (ClassCastException e) {
 			throw new ClassCastException(activity.toString() + " must implement NoteLocationListener");
 		}
